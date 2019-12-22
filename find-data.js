@@ -13,9 +13,16 @@ db.customers.aggregate([
       }
     },
     {
+        $project: {
+            _id: 0,
+            user_id: 1,
+            name: 1
+        } //user_id and name only in the output
+    },
+    {
         $sort: {
             user_id: 1
         }
-    }
+    } //sorting by user_id in ascending order
   ]
 )
